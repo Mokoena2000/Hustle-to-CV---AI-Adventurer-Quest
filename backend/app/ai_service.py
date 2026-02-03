@@ -2,7 +2,6 @@ import os
 from openai import OpenAI
 from dotenv import load_dotenv
 
-# This looks for the .env file in the backend folder
 load_dotenv()
 
 client = OpenAI(
@@ -11,17 +10,14 @@ client = OpenAI(
 )
 
 def transform_hustle_to_cv(raw_text: str):
-    """
-    The core 'magic'—converts informal hustle into professional bullet points.
-    """
     try:
+        # Switching to 'free' to ensure credits aren't the issue during integration
         response = client.chat.completions.create(
-            # Using Gemini Flash via OpenRouter: fast and cheap for testing
-            model="google/gemini-2.0-flash-001", 
+            model="mistralai/mistral-7b-instruct:free", 
             messages=[
                 {
                     "role": "system", 
-                    "content": "You are a professional CV writer. Transform informal work descriptions into high-impact, professional CV bullet points."
+                    "content": "You are a professional CV writer. Transform informal work into professional bullet points."
                 },
                 {"role": "user", "content": raw_text}
             ]
