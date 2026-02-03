@@ -11,7 +11,6 @@ client = OpenAI(
 
 def transform_hustle_to_cv(raw_text: str):
     try:
-        # Switching to 'free' to ensure credits aren't the issue during integration
         response = client.chat.completions.create(
             model="mistralai/mistral-7b-instruct:free", 
             messages=[

@@ -29,7 +29,7 @@ function HustleForm() {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
         },
-        timeout: 15000 // 15 second timeout for slow AI responses
+        timeout: 15000
       });
 
       setCvResult(response.data.cv);
