@@ -1,0 +1,5 @@
+fastapi-clerk-auth
+python-jose[cryptography]
+sqlmodel
+openai
+python-dotenv
